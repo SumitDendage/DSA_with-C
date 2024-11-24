@@ -1,0 +1,46 @@
+Algorithm for conversion of infix expression to postfix expression
+
+Requirements
+
+1. A string to store the infix expression accepted from user
+2. A string to store the postfix expression generated
+3. A stack to store opening bracket & operators
+
+Steps
+
+1. Stack is initialised
+2. Accept the infix expression in infix string
+3. Read the character from infix string
+4. If it is an operand, then add it to postfix string
+5. If it is opening bracket i.e. ( then push it in stack
+6. If it is an operator,
+         while (stack is not empty && priority(top of stack) >= priority(infix character))
+         {
+	pop the character from stack
+	& add it to postfix string
+         }
+         Push the operartor in stack
+7. If it is closing bracket i.e. )
+	ch = pop()    // pop the character from stack & assign it to ch
+	while (ch != '(')
+	{
+		add ch to postfix string
+		ch = pop()
+	}
+8. If the infix string has not ended, go to step 3
+9. If the stack is not empty, pop 1 by 1 operator from stack & add it to postfix string
+10. Display the postfix string
+
+Priority Table
+
+	-----------------------------------------
+	character		priority
+	-----------------------------------------
+	   ^ or $		3	(Power value/exponentiation operator)
+	  / * %		2
+	  +  -		1
+	  (		 0
+	-----------------------------------------
+
+
+

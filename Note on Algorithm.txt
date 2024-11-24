@@ -1,0 +1,14 @@
+Algorithm
+
+An algorithm is a problem solving technique or step by step method to find a solution to a given problem. The choice of a good algorithm greatly affects the efficiency of a program. 
+
+Definition - An algorithm is a finite set of instructions which if followed can accompalish a particular task.
+
+Algorithms are language independent i.e. they can be implemented using any programming language. For e.g. C, C++, Java, Python, etc.
+
+The main criteria to judge the performance of an algorithm is "space & time complexity".
+
+Space complexity of an algorithm is the amount of space /memory required by the program to complete it's execution.
+
+Time complexity is the amount of time taken by a program to complete a given task. 
+

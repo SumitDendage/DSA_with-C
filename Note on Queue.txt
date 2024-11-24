@@ -1,0 +1,17 @@
+Queue
+
+A Queue is an ordered collection of items in which the items are inserted from one position (rear) & removed from another position (front). A queue operates on FIFO principle i.e. first in first out. This means the queue works on First Come, First Serve principle. 
+
+For applications of Queue, refer to DSF Notes.
+
+Primitive Operations on Queue
+1. Queue is initialised
+2. add elements to queue from rear position
+3. remove elements from queue from front position
+4. check queue full
+5. check queue empty
+
+Like stacks, queues can also be implemented using a static data structure like array or a dynamic data structure like linked list.
+
+There are different types of queues like linear queue, DEQUEUE, Circular Queue & Priority Queue.
+

@@ -1,0 +1,44 @@
+Algorithm to convert Infix Expression to Prefix Expression
+
+Requirements
+
+1. A string to store the infix expression accepted from user
+2. A string to store the prefix expression generated
+3. A stack to store the operators & closing bracket ")"
+
+Steps
+
+1. Stack is initialised
+2. Accept the infix expression in infix string
+3. Read the expression from Right to Left
+4. If it is operand, add it to prefix string
+5. If it closing bracket, push it in stack
+6. If it is an operator,
+	while (stack is not empty && priority(top of stack) > priority(infix character))
+	{
+		pop the character from stack
+		& add it to prefix string
+	}
+	push the infix operator in stack
+7. If it is opening bracket
+	ch = pop()
+	while (ch != ')')
+	{
+		add ch to prefix string
+		ch = pop()
+	}
+8. If the infix string has not ended, go to step 3
+9. If stack is not empty, pop 1 by 1 operator & add it to prefix string
+10. Display the reverse of prefix string
+
+Priority Table
+
+	--------------------------------------
+	char		priority
+	--------------------------------------
+	^   $		3
+	/ % *		2
+	+ - 		1
+	)		0
+	--------------------------------------
+

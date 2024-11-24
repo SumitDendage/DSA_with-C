@@ -1,0 +1,22 @@
+Scope of a variable
+
+This indicates the accessibility/visibility of a variable to a certain section of code in the program. Scopes are defined using a pair of curly braces i.e.  {   }. There are 2 types of scopes
+
+1. Local   2. Global
+
+Local variables - Variables declared within a function scope { } are called as "local variables". These variables are accessible only to the code of that function. Thus by declaring scope, we are localising the variables and protecting them from unauthorised access.
+
+Global variables - Variables declared outside the scope of any function are called as "global variables" i.e. declared just below the header file declaration. These variables are accessible to the code of all functions. Hence such variables are also called as "Shared variables".
+
+In case there is a conflict between local and global var/s with same name, then preference is given to local variables.
+
+1. int x = 10;
+2. x = 10;
+
+The 1st statement will create a "new" var x in scope of a function & initialise it to value 10. To create this var, there should not be any other var with same name & in same scope.
+
+The 2nd statement means, var x is already declared/defined in scope & should be initialised to value 10. If this var x doesn't exist, we get compile error.
+
+
+
+

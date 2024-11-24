@@ -1,0 +1,20 @@
+Fibonacci Series - In this series the sum of previous 2 terms is the current term. The series is
+
+iteration	0  1   1    2   3   5   8  13   21   34   55   89    144   .......
+0	ct nt
+1	    ct  nt
+2	         ct  nt
+3	              ct  nt
+
+To generate any series, we have to go by assumption.
+
+curr_term = 0
+next_term = 1
+
+// suppose we want to generate the 1st 10 terms of this series
+for (i=0;i<10;i++)
+{
+	printf("%d\t",curr_term);   // 0  1   1   2
+	next_term = curr_term + next_term;  // 1, 2,  3
+	curr_term = next_term - curr_term;  // 1, 1, 2
+}

@@ -1,0 +1,243 @@
+To Determine the time complexity of a code
+
+For calculating the time complexity, we have to go for some assumption bcoz the same operation may take different time periods on different machines. For e.g. if we have a program containing an expression say "a+b", then to evaluate the expression, a slower machine may take 1 second, a bit faster machine may take 1 milli second and a much faster machine may take 1 nano second & so on.
+
+So we know that the computing time is a fixed quantity which is taken by any machine. So to keep the time complexity independent of machine speed, programmers often say that the time taken to process or evaluate an expression is "1 unit of time". Note that declarations, initialisations, comparisons and return statements normally take 1 unit of time.
+
+1. An eg of Constant Time Complexity
+
+int sumOfNumbers(int a,int b)
+{
+	int sum;
+	sum = a + b;
+	return sum;
+}
+
+Analysis:-
+1. int sum;   // 1 unit of time
+2. sum = a + b;  // To add, 1 unit of time & to assign 1 unit of time = Total 2 units of time
+3. return sum;  // 1 unit of time
+
+Total units of time = 1 + 2 + 1 = 4
+Time complexity of above code is expressed as T( ) = O(1) i.e. some fixed amount of time is required and also indicates that the time complexity of code doesn't increase or depend upon the size of input.
+
+2. Ag of Linear Time Complexity
+
+int sumOfNumbers(int arr[ ],int n)
+{
+	int sum = 0, i;
+	for (i=0;i<n;i++)
+		sum = sum + arr[i];
+
+	return sum;
+}
+
+Analysis:
+
+1. int sum = 0, i;   // 3 units of time (2 units for 2 vars declaration & 1 unit for 1 var initialisation)
+2. Loop
+    a. i = 0    // 1 unit of time
+    b. i < n   // n+1 units of time bcoz this statement executed (n+1) no of times
+    c. i++     // n units of time bcoz this statement executed n no of times
+3. sum = sum + arr[i];   // 2n
+4. return sum  // 1 unit of time
+
+Total Units of time = 3 + 1 + (n+1) + n + 2n +  1 = 4n + 6
+
+Ignoring the constant 6 and 4, total units of time reqd is n. So T( ) = O(n)
+
+Rough work:
+
+for (i=0;i<5;i++)
+
+Comparison Statement execution (i < 5)
+1. i=0, 0<5, True    // 1 unit of time
+2. i=1, 1<5, True    // 1 unit of time
+3. i=2, 2<5, True    // 1 unit of time
+4. i=3, 3<5, True    // 1 unit of time
+5. i=4, 4<5, True    // 1 unit of time
+6. i=5, 5<5, False    // 1 unit of time  Note that even if condition is false, the statement got executed
+		--------------------
+		6 units of time i.e. as n = 5 & hence it (n+1) units of time
+
+
+Increment Statement execution (i++)
+
+1. i = 1  // 1 unit of time
+2. i = 2  // 1 unit of time
+3. i = 3  // 1 unit of time
+4. i = 4  // 1 unit of time
+5. i = 5  // 1 unit of time
+	-------------------
+	5 units of time
+
+
+3. An eg of Quadratic Time Complexity
+
+for (i=1;i<=n;i++)
+{
+	for (j=1;j<=n;j++)
+		a = a + b;
+}
+
+Total Time reqd =      1 + (n+1) + n      +   n + n * (n+1) + n * n   +   2n * n
+                               <--- outer loop -->         <--- inner loop -->      <-- expression -->
+	         = 1 + n + 1 + n + n + n^2 + n + n^2 + 2n^2
+	         = 4n^2 + 4n + 2
+
+Ignoring the terms with lesser value or lower orders, T( ) = O(n^2)
+
+i=1, j=1
+i=2, j=1
+i=3, j=1
+i=4, j=1
+.....
+.....
+i=n,j=1
+
+j=1 is executed n times
+
+i=1, j<=n,  n+1
+i=2, j<=n,  n+1
+i=3, j<=n,  n+1
+....
+i=n, j<=n,  n+1
+
+Sum =  n * (n+1)
+
+4. An eg of Logarithmic Time Complexity
+
+for (i=1;i<n;i *= 2)    
+{
+	// some code like simple expression, switch statement or conditional statement etc.
+	// but not a loop. These statements are such that they do not affect the time complexity
+}
+
+values of i will be 1,   2,   4,     8,    16,   32   .....   n
+same as             2^0 2^1 2^2  2^3  2^4  2^5  ..... 2^k,  where k is some constant
+
+This means that the loop will execute till 2^k < n   bcoz in loop we have written i < n
+It means that the loop will terminate when 2^k = n
+Taking logs on both sides
+log 2^k = logn
+k log 2 = logn  // here base of log is 2 and not 10
+k = log n   // bcoz log 2 to the base 2 is 1
+
+This means the loop iterates log n times & hence the time complexity is T( ) = O(log n)
+
+5. An eg of Exponential Time Complexity
+
+int i, k, j = 1;
+
+for (i=0;i<n;i++)
+{
+	for (k=0;k<j;k++)
+		printf("Hello");
+
+	j = j * 2;
+}
+            Inner loop Execution
+i=0, j=1  ==>  1  ==> 2^0
+i=1, j=2  ==>  2  ==> 2^1
+i=2, j=4  ==>  4  ==> 2^2
+i=3, j=8  ==>  8  ==> 2^3
+.....
+.....
+i=n-1, j=... ==> .. ==> 2^(n-1)   (Last iteration of outer loop bcoz it will terminate when i = n)
+
+Total Executions = 2^0 + 2^1 + 2^2 + 2^3 + ..... + 2^(n-1)
+                           = 2^n - 1   (How?)
+
+e.g. If n = 3, i=0,1,2 (3 executions) ==> 2^0 + 2^1 + 2^2 = 1 + 2 + 4 = 7  i.e. 2^3 - 1
+
+Ignoring the consants, T( ) = O(2^n)
+
+
+To determine the time complexity of recursive functions
+
+The time complexity of a recursive function depends upon the no. of times the function calls itself
+
+1.
+	int recfn(int n)
+	{
+		if (n <= 0)
+			return 1;
+		else
+			return 1 + recfn(n-1);
+	}
+
+This function is being called recursively "n" times before reaching the base case. So T( ) = O(n)
+
+For eg if value of n = 10, then the function will be called recursively for values 10,9,8....,1 i.e. the function was called 10 times i.e. n times
+
+
+2.
+	int recfn(int n)
+	{
+		if (n <= 0)
+			return 1;
+		else
+			return 1 + recfn(n/2);
+	}
+
+Here the input size "n" is reduced to 1/2 in each recursive call i.e. it become n/2, n/4, n/8, n/16, .... till it reaches the base value of 1 bcoz 1/2 is 0.
+
+For e.g. if n = 100, the value will reduce to 50, 25, 12, 6, 3, 1
+                n = 16, the value will reduce to 16, 8, 4, 2, 1
+
+Hence the time complexity can be determined as follows
+
+	n	n	n	n	n	.....	n
+	---	---	---	---	---		---
+	2 (2^1)	4 (2^2)	8 (2^3)	16 (2^4)	32 (2^5)		2^k
+
+where k is some constant.
+
+Recursion will continue till n >= 2^k & will stop when n < 2^k
+	
+In other words, recursion will continue till 2^k <= n
+Taking log on both the sides
+log 2^k = log n
+k log 2 = log n
+k = log n
+
+This means recursive calls are log n. So T( ) = O(log n)
+
+3. If we call a recursive function twice or more from itself, then the time complexity is exponential. For e.g. the recursive function to generate the fibonacci series
+
+	fibo(n) = 					1   ==> 2^0
+		fibo(n-1)    +     fibo(n-2)		2   ==> 2^1
+		       |                         |
+	          ---------------------        ---------------------
+	          |                        |       |                         |
+                       fibo(n-2)      fibo(n-3)   fibo(n-3)        fibo(n-4)	4    ==> 2^2
+	          |                    |                |                       |
+                    -----------      -----------      -------------      --------------
+	   |             |     |            |      |              |      |                |  8    ==> 2^3
+		
+	.........................				       ==> 2^k
+
+	where k is some constant
+
+Sum of series = 2^0 + 2^1 + 2^2 + 2^3 + ..... + 2^k
+                       =  2^0 + 2^1 + 2^2 + 2^3 + ..... + 2^(n-1)
+	      = 2^n - 1
+
+Ignoring constant 1, T( ) = O(2^n)
+
+
+Time complexity lower the better
+
+O(1)  <  O(log n) < O(n logn)  < O(n)  < O(n^2)   <  O(n^3) < O(2^n)
+
+
+
+
+
+
+
+
+
+
+
+

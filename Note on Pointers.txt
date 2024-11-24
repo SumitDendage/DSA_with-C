@@ -1,0 +1,11 @@
+Pointers
+
+These are special type of variables which hold the address of other variables from memory. Pointers are normally used between function calls wherein the called function needs to refer to the variables of calling function.
+
+Pointers are declared using a special operator "*" also called as "value at address operator". Here we say that the operator "*" is overloaded. It means we can use it in multiple context. For eg if used with 2 variables or constants, it is "multiplication operator". However if used with single variable, it is called as "value at address operator" and this variable will be called as "pointer variable".
+
+Pointer variables are declared depending upon the value to which they are pointing/referring. For eg if it is a pointer to a character, it is "char *", if it is a pointer to an int, it is "int *", if it is a pointer to a float, "float *", etc.
+
+To get the address of a variable, we use "&" operator. This operator is also called as "address of operator".
+
+When * is used as "unary operator" it is a pointer and when used as "binary operator" it is a multiplication symbol. Unary operator is an operator which works with single var (operand) & binary operator is the one which works with 2 vars.

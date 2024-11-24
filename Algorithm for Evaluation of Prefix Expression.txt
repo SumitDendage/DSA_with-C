@@ -1,0 +1,20 @@
+Algorithm for Evaluation of Prefix Expression
+
+Requirements
+
+1. A prefix string to store the prefix expression accepted from user
+2. A stack to store the values of operands
+
+Steps
+
+1. Stack is initialised
+2. Accept the prefix expression in prefix string
+3. Accept the values for operands
+4. Read the prefix expression from Right to Left
+5. If it is an operand, push it's value in stack
+6. If it is an operator,
+	pop 2 values from stack,
+	apply the operator to these 2 values
+	& push the result in stack
+7. If the prefix string has not ended, go to step 4
+8. Pop the result from stack & display

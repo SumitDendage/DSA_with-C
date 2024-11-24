@@ -1,0 +1,15 @@
+Recursion
+
+If a function calls itself then such a function is called as a recursive function & the process is called as "recursion". In other words, if the calling and the called function are same, then the function is said to be recursive. A recursive function can be seen as an alternative to looping command. This function must contain a conditional statement alongwith "return" statement. If not, the function will call itself endlessly i.e. will not terminate & will lead to an error similar to "endless loop".
+
+
+factorial value of 5 = 5 x factorial value of 4 =  5 x  24   =   120
+			 |			   |
+	          		4 x factorial value of 3  = 4 x 6 = 24
+				|	             |
+	             			3 x factorial value of 2  = 3 x 2 = 6
+				              |		            |
+	             			            2 x factorial value of 1   = 2 x 1 = 2
+					 	|	|
+				     		        1             
+	       

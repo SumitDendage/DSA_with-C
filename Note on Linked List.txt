@@ -1,0 +1,40 @@
+Linked List
+
+A single variable can store a single value only. To store multiple values, declaring too many variables is a cumbersome/tedious process. In such cases, we use "arrays". However these arrays are also subjected to several drawbacks.
+
+1. An array is a static data structure i.e. it's size remains fixed till the end of application. This means @ runtime, if we enter less values than the prescribed size of array, then lot of memory gets wasted. Also if more elements are to be stored, it is not possible.
+
+2. Arrays require continuous memory locations & may not be available always.
+
+3. If we add or delete an element from array, elements on RHS need to be shifted by 1 position & this may take a lot of processing time making our application run slower.
+
+Hence instead of using a sequential representation like array, one can go for linked representation i.e. a linked list. A linked consists of "nodes" which are similar to "elements" of an array. These nodes store data (value) & also the address of next node in memory. Unlike elements of an array which require continuous memory locations, the "nodes" of the linked list may be situated any where in memory. This means we can go on storing data in the linked list till the system runs out of memory.
+
+To allocate memory for the node, we have to use a function "malloc" from stdlib.h. This function requires only 1 argument i.e. the amount of memory required by the node. To know this memory, we can use the "sizeof" operator. In return the malloc(), returns the address of memory location which is available to store data.
+(malloc means memory allocation). This way of allocating memory @ runtime i.e. as & when required is called as "dynamic memory allocation".
+
+In C language, arrays are allocated memory @ compile time also known as "static memory allocation". This means the memory is allocated in advance.
+
+Like we can have array of characters, strings, integers, floats, records, etc., we can also have linked list of all types. However we started learning the concept of arrays using integers (To store marks of 50 students).
+
+We need to create the node structure first for creating a linked list. For e.g. node structure for integer linked list is
+
+struct node
+{
+	int data;   // to store values like elements of array
+	struct node *next; // to store the address of next node in Linked list
+};
+
+Why "struct node *" ? We have already learnt that "pointers are declared depending upon the value to which they are pointing". As var "next" contains the address of next node in memory, it's declaration is "struct node *next".
+
+Also note that these nodes do not have any inherent (built in) positions like elements of an array. Hence they need to be accessed using memory location only.
+
+
+
+
+
+
+
+
+
+

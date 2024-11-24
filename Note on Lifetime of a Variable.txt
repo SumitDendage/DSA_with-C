@@ -1,0 +1,5 @@
+Lifetime of a Variable
+
+This means how long a variable persists/exists in memory. Variables declared in local scope i.e. within the function definition, perish/destroyed the moment the entire code in the function gets executed. However if we want the local variables to persist till the end of application or till the program terminate, declare them using "static" keyword.
+
+Note that the global variables exist in memory till the end execution of application.

@@ -1,0 +1,51 @@
+Searching
+
+Information retrieval is one of the most basic operations performed by a computer. Searching is a process of locating information matching some specific criteria/value. Since it is a frequently required task, the choice of searching algorithm plays an imp role in determining the efficiency of the program.
+
+Different techniques are available for searching data like linear/sequential search, binary search, fibonacci search, etc.
+
+Linear Search - This is the most simplest form of searching. Here the search begins at the top of the table i.e. from record 1. The requested key is compared with the record key. If it matches, the record is displayed & the search terminates. If it doesn't match, the search continues to the next record till matching record is not found or till end of table.
+
+Advantages
+1. Very simple technique to implement
+2. It doesn't require the data to be sorted
+
+Disadvantage
+1. If the no of records in the table is too large, then the technique is inefficient.
+
+Binary Search - Here the data is sorted on key values. The table is partitioned into 2 halves. The required key is compared with the key of middle record. If they match, the record is displayed and the search terminates.
+
+If the required key is lesser than the key of middle record, then the search continues in upper half of table & the lower part of table is ignored, considering the fact that the records are arranged in ascending order on key values.
+
+If the required key is greater than the key of middle record, then the search continues in lower half of table & the upper part of table is ignored.
+
+The process continues till no more partitions of table are possible.
+
+Thus every time a match is not found, the remaining table size to search reduces to half.
+
+Advantage
+1. It is a very efficient technique of searching
+
+Disadvantages
+1. Data needs to be sorted on key values
+2. This technique is applicable to linear data structures only.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,34 @@
+One of the applications of stack is conversion & evaluation of expressions. An expression consists of operands and operators. Operands can be variable names (identifiers) or constants and operators are nothing but symbols which represent different arithmetical operations. Depending upon the placement of operators with respect to operands, we have 3 types of expressions
+
+1. Infix    2. Postfix   3. Prefix
+
+Infix Expressions - Here the operator is placed between the operands. For eg A + B. However, if we have multiple operators, then the expression must be paranthesized. If not, we may get wrong results. For eg if we want to divide the sum of operands A & B with operand C, then the expression A + B / C will actually add operand A to Quotient of B / C bcoz / operator has more priority than + operator. So the expression must be written as (A + B) / C to get correct result.
+
+Hence to avoid this confusion, a Polish mathemetician designed 2 forms of writing expressions which are free of parenthesis (brackets). Hence these forms i.e. Postfix & Prefix are sometimes also called as "Polish Notations".
+
+Postfix Expressions - Here the operator follows the operands. For eg AB+
+
+Prefix Expressions - Here the operator preceeds the operarands. For eg +AB
+
+General Technique for conversion of Infix Expression to Postfix or Prefix Expressions
+
+1. Completely parenthesize the infix expression to determine the precedence of operators
+2. Move the operator outside right parenthesis (for postfix) OR outside left parenthesis (for prefix) and remove the parenthesis
+3. Continue from step 2 till all parenthesis are not removed
+
+------------------------------------------------------------------------------------------------------------------------
+	Infix			Postfix			Prefix
+------------------------------------------------------------------------------------------------------------------------
+	(A+B)/C			((A+B)/C)			((A+B)/C)
+				(AB+/C)			(+AB/C)
+				AB+C/			/+ABC
+				
+	(A+B)*(C-D)/E		(((A+B)*(C-D))/E)		(((A+B)*(C-D))/E)
+				((AB+*CD-)/E)		((+AB*-CD)/E)
+				(AB+CD-*/E)		(*+AB-CD/E)
+				AB+CD-*E/		/*+AB-CDE
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+
+

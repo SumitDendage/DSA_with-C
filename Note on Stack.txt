@@ -1,0 +1,14 @@
+Stack
+A Stack is an ordered collection of items, in which the items can be inserted or removed from one position only i.e. the "top of the stack". Thus the stack operates on LIFO principle i.e. last in first out. In real life, we come across a "stack of books" on a table or "stack of plates" in a buffet, stack of "cards" in a play, etc.
+
+Stacks have a lot of applications for eg it is used in recursion to manage the function calls, for solving problems which require back tracking, to create reverse strings, conversion of expressions, etc.
+
+Stack can be implemented using a static structure like array or a dynamic structure like linked list. Both these stacks contain a special element called as "top" to get the information of the top most element of the stack. In case of static stack, "top" is a position whereas in case of dynamic stack, it is the address of "top" element of stack.
+
+Primitive/Basic operations on Stack
+
+1. Push - To add a new element to the stack
+2. Pop - To remove the element at the top of the stack
+3. Isfull - To check whether the stack is full or not. If full, push operation is not possible
+4. Isempty - To check whether the stack is empty or not. If empty, pop operation is not possible
+5. peek - To check the top most element from stack

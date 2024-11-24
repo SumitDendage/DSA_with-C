@@ -1,0 +1,98 @@
+Strings
+A string is nothing but an array of characters. Unlike numeric arrays, strings terminate with a special character '\0', also called as "null character" & the ascii value of which is 0.
+
+\ - back slash,  / - front slash
+
+ASCII is "american standard code for information and interchange". There are a total of 256 characters available on the keyboard which can be uniquely identified using a special number called as "ascii". It is as follows
+
+	Category			ASCII Values Range
+	--------------------------------------------------------------------
+	A - Z			65 - 90
+	a - z			97 - 122
+	0 - 9			48 - 57
+	Symbols (+,-.<>/...)		Remaining
+	---------------------------------------------------------------------
+
+If you equate any character to an int var, we get it's ascii value.
+
+char ch = 'c';   // printf("Enter a character :- ");   scanf("%c",&ch);
+int no = ch;
+printf("ASCII Value of ch is %d",no);  // 99
+
+Like numeric arrays, for self initialised character arrays, specifying size of array is not compulsory.
+For e.g.
+
+char name[ ] = {'d','a','t','a','b','y','t','e','\0'};
+
+However to store long passages of text in this manner is very tedious. Hence developers use an alternative method.
+
+char name[ ] = "databyte";
+
+Why \0 is inserted at the end of string? In case of char arrays i.e. strings, we have a format specifier %s to accept & display strings. This format specifier %s will read the data from memory for a string till \0 is not encountered. This kind of format specifier is not available for numeric arrays where we use a loop to refer to every element of numeric array.
+
+%n --> numeric array -->  {10,11,12,13,14}
+printf("%n",nos);  --> 1011121314 --> how to know how many nos are there here?
+
+char name[ ] = "databyte";
+
+Here \0 is inserted auto by the compiler. Pls. note that every character of string including \0 is stored in independent memory address. Eg
+
+index	-->	0	1	2	3	4	5	6	7	
+name[ ]	-->	'd'	'a'	't'	'a'	'\0'
+address	-->	600	601	602	603	604	......
+
+Every character requires 1 byte of memory only. We need to access every character in strings for processing. For eg may be we would like to know which letters are vowels (aeiou), convert small letters to capital letters, etc.
+
+Imp functions from string.h which are useful for string manipulations
+
+1. int strlen(char [ ])  - This function returns the length of the string passed to the function as an
+		   argument. Base for length is 1 & does not include \0. However while assigning
+		   the width/size of string, it should be inclusive of \0. For eg length of string
+		   "databyte" is 8 & to store this string, we have to reserve 9 chars/bytes.
+
+2. void strcpy(char tgt[ ],char src[ ])  - Strings being derived types (not basic types) do not support
+			          operators like =, ==, >, <, etc. So to copy or assign the contents
+			          of 1 string (src) to another string (tgt), use this function
+char src[ ] = "sumeet dendage";
+char tgt[20];
+tgt = src;   // error, strings are arrays & they cannot be copied using = operator
+So the fn strcpy() will copy 1 by 1 char from src to tgt using a loop
+
+3. void strcat(char tgt[ ],char src[ ]) - To concantenate/join the contents of source to target string.
+			        Operation is similar to +=
+
+char tgt[ ] = "Sumit", src[ ] = "Dendage";
+strcat(tgt,src);
+printf("tgt string is %s",tgt);   // Sumit Dendage
+
+4. int strcmp(char str1[ ],char str2[ ]) - To compare 2 Strings character by character. Returns 0 if 2 
+			           strings are identical, 1 if str1 > str2 & -1 if str1 < str2.
+			           For eg. str1[ ] = "abhijit", str2[ ] = "abhishek"
+			           While these strings are compared, the 1st 4 chars are same.
+			            So the comparison continues. However as ascii value of 'j'
+			             < ascii value of 's', the value returned is -1 & the comparison
+			             of str1 & str2 is stopped & value -1 is returned. As the value is
+ 			             not 0, 2 strings are not identical/same. This function is case
+			             sensitive i.e. "abhijit" & "Abhijit" are not same as ascii value of
+				'a' is 97 but of 'A' is 65.
+
+5. int stricmp(char str1[ ],char str2[ ]) - Similar to strcmp() but is not case sensitive. Just checks the 
+				spelling & used for verification of usernames whereas
+				strcmp() is used for password authentication.
+				i - ignore case
+
+6. char * strupr(char [ ])  - This function converts the given string into upper case
+
+7. char * strlwr(char [ ]) - This function converts the given string into lower case. Note that a function
+			cannot return an array & hence it returns the address of array.
+
+8. char * strrev(char [ ]) - This function is used to reverse the contents of a given string.
+			for eg name[ ] = "sumit"  will get converted to "timus"
+				           
+
+
+
+
+
+
+
